@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+	protect_from_forgery with: :null_session
 	before_action :authenticate, except: [:authentication, :create]
 
 	def new
@@ -18,7 +18,6 @@ class UsersController < ApplicationController
 			if  encrypted_password == @user.encrypted_password
 				render json: @user
 			end
-			# Todo failed login response will be returned.
 		end
 	end
 
