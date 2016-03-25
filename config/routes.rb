@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'users/list'
   post 'users/create'
+  get 'movies/list'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
