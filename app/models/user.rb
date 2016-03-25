@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
 	before_save :encrypt_password, :set_token, :set_date_created
 	after_save :clear_password
 
+	has_many :user_movie_action
+  has_many :movies, through: :user_movie_action
+
 	def encrypt_password
 		if password.present?
 			self.salt = BCrypt::Engine.generate_salt

@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
 
-	protect_from_forgery :except => :create 
 	before_action :authenticate, except: [:authentication, :create]
 
 	def new
@@ -26,7 +25,7 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
 		@user.save!
-		render json: @user
+		render json: @user, status: 201
 	end
 
 	def user_params

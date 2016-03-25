@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'users/list'
+  get 'users/authentication'
   post 'users/create'
   get 'movies/list'
 
